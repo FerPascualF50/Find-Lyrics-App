@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useEffect } from 'react';
 import { chartTrackGet, trackSearch } from '../constants';
 
@@ -11,11 +12,11 @@ const SongContextProvider = ({children}) => {
   const [text, setText] = useState('Top US Songs');
   const [tracks, setTracks] = useState([]);
 
-  useEffect(() => getTopTrack(), [])
+  useEffect(() => getTopTracks(), [])
 
-  const getTopTrack = () => {
-    fetch(chartTrackGet())
-      .then(res => res.json())
+  const getTopTracks = () => {
+    fetch(console.log(chartTrackGet()))
+      .then(res => console.log(res.json()))
       .then(data => {
         setDoneFetch(true)
         setTracks(data.message.body.track_list)
@@ -48,10 +49,10 @@ const SongContextProvider = ({children}) => {
     }
   }
   return (
-    <SongsContext.Provider value={{doneFetch, text, tracks, action:validateQTrack} }>
+    <SongsContext.Provider value={{doneFetch, text, tracks, validateQTrack} }>
       {children}
     </SongsContext.Provider>
   );
 };
 
-export default SongContextProvider;
+export default SongContextProvider

@@ -3,9 +3,8 @@ import { Box } from '@mui/material';
 import Track from './Track';
 //import Message from '../Common/Message';
 
-
-
 const Tracks = ({ tracks, text }) => (
+  //<Message text={text} />
   <Box
   sx={{
     display: 'flex',
@@ -27,22 +26,25 @@ const Tracks = ({ tracks, text }) => (
           album_name,
           artist_name
         } = track.track
-
+        
         return (
+          
           <Track
-            key={commontrack_id}
-            commontrack_id={commontrack_id}
-            track_name={track_name}
-            album_name={album_name}
-            artist_name={artist_name}
-
+          key={commontrack_id}
+          commontrack_id={commontrack_id}
+          track_name={track_name}
+          album_name={album_name}
+          artist_name={artist_name}
+          
           />
-        )
-      })
-    }
+          )
+        })
+      }
+      
   </Box>
 
 
+//   <Message text={text} />
 
 
   // <Fragment>

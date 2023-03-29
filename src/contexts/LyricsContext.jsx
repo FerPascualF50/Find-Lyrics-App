@@ -11,10 +11,10 @@ const LyricsContextProvider = ({ children }) => {
   const [track, setTrack] = useState([]);
   const [lyrics, setLyrics] = useState([]);
 
-  useEffect(() => getTrack(commontrack_id), [commontrack_id])
+  useEffect(() => getTracks(commontrack_id), [commontrack_id])
   useEffect(() => getLyrics(commontrack_id), [commontrack_id])
 
-  const getTrack = commontrack_id => {
+  const getTracks = commontrack_id => {
     fetch(trackGet(commontrack_id))
       .then(res => res.json())
       .then(data => {

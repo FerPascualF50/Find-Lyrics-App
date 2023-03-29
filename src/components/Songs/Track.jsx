@@ -6,25 +6,18 @@ import AlbumIcon from '@mui/icons-material/Album';
 import ButtonPrimary from '../Common/ButtonPrimary';
 
 const Track = ({ commontrack_id, track_name, album_name, artist_name }) => (
-<Card sx={{ maxWidth: 270 }} >
-      {/* <CardMedia
-        sx={{ height: 350 }}
-        image={image}
-        title={name}
-        align='center'
-      /> */}
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {artist_name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <MusicNote /> Track: <b>{track_name}<br></br></b>
-          <AlbumIcon /> Species: <b>{album_name}<br></br></b>
-        </Typography>
-        <ButtonPrimary type='lyrics' to={`/lyrics/track/${commontrack_id}`} />
-      </CardContent>
-      
-    </Card>
+  <Card sx={{ maxWidth: 270 }} >
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        {artist_name}
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        <MusicNote /> Track: <b>{track_name}<br></br></b>
+        <AlbumIcon /> Album: <b>{album_name}<br></br></b>
+      </Typography>
+      <ButtonPrimary type='lyrics' to={`/lyrics/track/${commontrack_id}`} />
+    </CardContent>
+  </Card>
 
 
 

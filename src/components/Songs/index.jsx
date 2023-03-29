@@ -6,16 +6,16 @@ import ProgressBar from '../Common/ProgressBar';
 import Message from '../Common/Message';
 
 const Songs = () => {
-  const { validateQTrack, doneFetch, tracks, searchValue } = useContext(SongsContext);
+  const { validateQTrack, doneFetch, tracks, text } = useContext(SongsContext);
 
   return (
     <Fragment>
       <SearchTrack validateQTrack={validateQTrack} />
       {doneFetch ? (
         tracks.length ? (
-          <Tracks searchValue={searchValue} tracks={tracks} />
+          <Tracks text={text} tracks={tracks} />
           ) : (
-            <Message text={`No se encontraron resultados para "${searchValue}"`} />
+            <Message text={`No se encontraron resultados para "${text}"`} />
             )
             ) : (
               <ProgressBar />
