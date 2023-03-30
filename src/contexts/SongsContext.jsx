@@ -9,14 +9,14 @@ export const SongsContext = createContext();
 const SongContextProvider = ({children}) => {
   const [doneFetch, setDoneFetch] = useState(false);
   const [currentQTrack, setCurrentQTrack] = useState('');
-  const [text, setText] = useState('Top US Songs');
+  const [text, setText] = useState('Top Argentina Songs');
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => getTopTracks(), [])
 
   const getTopTracks = () => {
-    fetch(console.log(chartTrackGet()))
-      .then(res => console.log(res.json()))
+    fetch(chartTrackGet())
+      .then(res => res.json())
       .then(data => {
         setDoneFetch(true)
         setTracks(data.message.body.track_list)
@@ -30,7 +30,7 @@ const SongContextProvider = ({children}) => {
       .then(data => {
         const { track_list } = data.message.body
         setDoneFetch(true)
-        setText(track_list.length ? 'Results' : 'Results not founded');
+        setText(track_list.length ? 'Results' : 'Results not found');
         setTracks(track_list);
       })
       .catch(err => console.log(err.message))
